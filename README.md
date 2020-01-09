@@ -2,65 +2,65 @@
 
 $ cd /var/www/html <br/>
 $ git clone https://github.com/laravel/laravel.git <br/>
-$ mv laravel laravel-wordpress 
-$ cd /var/www/laravel-wordpress
-$ sudo composer install
-$ sudo chown -R www-data.www-data /var/www/html/laravel-wordpress
-$ sudo chmod -R 755 /var/www/html/laravel-wordpress
-$ sudo chmod -R 777 /var/www/html/laravel-wordpress/storage
-$ sudo mv .env.example .env
-$ php artisan key:generate
-$ vi .env
+$ mv laravel laravel-wordpress <br/>
+$ cd /var/www/laravel-wordpress <br/>
+$ sudo composer install <br/>
+$ sudo chown -R www-data.www-data /var/www/html/laravel-wordpress <br/>
+$ sudo chmod -R 755 /var/www/html/laravel-wordpress <br/>
+$ sudo chmod -R 777 /var/www/html/laravel-wordpress/storage <br/>
+$ sudo mv .env.example .env <br/>
+$ php artisan key:generate <br/>
+$ vi .env <br/>
 
 ## Steps Create BD for Larevel
 
-mysql> CREATE DATABASE laravel_wordpress;
-mysql> GRANT ALL ON laravel_wordpress.* to 'laravel'@'localhost' IDENTIFIED BY 'secret';
-mysql> FLUSH PRIVILEGES;
-mysql> quit
+mysql> CREATE DATABASE laravel_wordpress; <br/>
+mysql> GRANT ALL ON laravel_wordpress.* to 'laravel'@'localhost' IDENTIFIED BY 'secret'; <br/>
+mysql> FLUSH PRIVILEGES; <br/>
+mysql> quit <br/>
 
 ## SET .env
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=laravel_wordpress
-DB_USERNAME=laravel
-DB_PASSWORD=secret
+DB_CONNECTION=mysql <br/>
+DB_HOST=127.0.0.1 <br/>
+DB_PORT=3306 <br/>
+DB_DATABASE=laravel_wordpress <br/>
+DB_USERNAME=laravel <br/>
+DB_PASSWORD=secret <br/>
 
 ## Apache config
-$ sudo nano /etc/apache2/sites-enabled/000-default.conf
+$ sudo nano /etc/apache2/sites-enabled/000-default.conf <br/>
 
-add:
-        <Directory />
-                Options FollowSymLinks
-                AllowOverride None
-        </Directory>
-        <Directory /var/www/html/laravel-wordpress>
-                AllowOverride All
+add: <br/>
+        <Directory /> <br/>
+                Options FollowSymLinks <br/>
+                AllowOverride None <br/>
+        </Directory> <br/>
+        <Directory /var/www/html/laravel-wordpress> <br/>
+                AllowOverride All <br/>
         </Directory>
 
-$ sudo service apache2 restart
+$ sudo service apache2 restart <br/>
         
 ## Instaling Wordpress
 
-$ sudo curl -O https://wordpress.org/latest.tar.gz
-$ sudo tar xzvf latest.tar.gz
-$ sudo touch wordpress/.htaccess
-$ sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php
-$ sudo mkdir wp-content/upgrade
-$ sudo chmod g+w wp-content
-$ sudo chmod -R g+w wp-content/themes
-$ sudo chmod -R g+w wp-content/plugins
-$ curl -s https://api.wordpress.org/secret-key/1.1/salt/
+$ sudo curl -O https://wordpress.org/latest.tar.gz <br/>
+$ sudo tar xzvf latest.tar.gz <br/>
+$ sudo touch wordpress/.htaccess <br/>
+$ sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php <br/>
+$ sudo mkdir wp-content/upgrade <br/>
+$ sudo chmod g+w wp-content <br/>
+$ sudo chmod -R g+w wp-content/themes <br/>
+$ sudo chmod -R g+w wp-content/plugins <br/>
+$ curl -s https://api.wordpress.org/secret-key/1.1/salt/ <br/>
 
 
 ## Steps Create BD for Wordpress
 
-mysql> CREATE DATABASE wordpress_laravel;
-mysql> GRANT ALL ON wordpress_laravel.* to 'laravel'@'localhost' IDENTIFIED BY 'secret';
-mysql> FLUSH PRIVILEGES;
-mysql> quit
+mysql> CREATE DATABASE wordpress_laravel; <br/>
+mysql> GRANT ALL ON wordpress_laravel.* to 'laravel'@'localhost' IDENTIFIED BY 'secret'; <br/>
+mysql> FLUSH PRIVILEGES; <br/>
+mysql> quit <br/>
 
 
 
