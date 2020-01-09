@@ -1,8 +1,7 @@
 ## Step Laravel Installation
 
-$ cd /var/www/html
-
-$ git clone https://github.com/laravel/laravel.git
+$ cd /var/www/html <br/>
+$ git clone https://github.com/laravel/laravel.git <br/>
 $ mv laravel laravel-wordpress 
 $ cd /var/www/laravel-wordpress
 $ sudo composer install
