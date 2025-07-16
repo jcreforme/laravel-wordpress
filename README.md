@@ -55,7 +55,7 @@ $ sudo chmod -R g+w wp-content/plugins <br/>
 $ curl -s https://api.wordpress.org/secret-key/1.1/salt/ <br/>
 
 
-## Steps Create BD for Wordpress
+## Steps Create DB for Wordpress
 
 mysql> CREATE DATABASE wordpress_laravel; <br/>
 mysql> GRANT ALL ON wordpress_laravel.* to 'laravel'@'localhost' IDENTIFIED BY 'secret'; <br/>
